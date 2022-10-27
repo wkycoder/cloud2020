@@ -1,0 +1,25 @@
+server:
+  port: 8081 # 这里应该写80
+
+spring:
+  application:
+    name: cloud-order
+
+eureka:
+  client:
+    # 是否将自己注册到注册中心上
+    register-with-eureka: true
+    # 是否从注册中心检索服务，抓取服务信息
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版
+
+# 开启hystrix熔断和降级功能
+feign:
+  hystrix:
+    enabled: true
+
+
+
+

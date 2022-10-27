@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: cloud-payment
+#  cloud:
+#    zookeeper:
+#      connect-string: 192.168.58.3:2181
+
+eureka:
+  client:
+    # 是否将自己注册到注册中心上
+    register-with-eureka: true
+    # 是否从注册中心检索服务，抓取服务信息
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版
+
