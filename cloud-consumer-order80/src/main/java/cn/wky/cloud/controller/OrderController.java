@@ -3,6 +3,7 @@ package cn.wky.cloud.controller;
 import cn.wky.cloud.entity.CommonResult;
 import cn.wky.cloud.entity.Payment;
 import cn.wky.cloud.feign.PaymentFeignClient;
+import cn.wky.cloud.feign.StockFeignClient;
 import com.fasterxml.jackson.core.JsonToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,20 @@ public class OrderController {
     private RestTemplate restTemplate;
     @Resource
     private PaymentFeignClient paymentFeignClient;
+    @Resource
+    private StockFeignClient stockFeignClient;
 
     @PostMapping("/consumer/payment/pay")
     public CommonResult pay() {
         String data = paymentFeignClient.pay();
+        System.out.println(data);
+        return CommonResult.ok("请求成功", data);
+
+    }
+
+    @PostMapping("/consumer/payment/deduct")
+    public CommonResult deduct() {
+        String data = stockFeignClient.deduct();
         System.out.println(data);
         return CommonResult.ok("请求成功", data);
 

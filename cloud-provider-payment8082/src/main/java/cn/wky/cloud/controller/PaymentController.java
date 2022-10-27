@@ -25,13 +25,13 @@ public class PaymentController {
 
     @PostMapping("/pay")
     public String pay() throws InterruptedException {
-        Random random = new Random();
-        int i = random.nextInt();
-        System.out.println(i);
-        if (i % 2 == 0) {
-            // 阻塞，模拟请求超时
-            TimeUnit.SECONDS.sleep(5);
-        }
+//        Random random = new Random();
+//        int i = random.nextInt();
+//        System.out.println(i);
+//        if (i % 2 == 0) {
+//            // 阻塞，模拟请求超时
+//            TimeUnit.SECONDS.sleep(5);
+//        }
         return "支付成功";
     }
 
